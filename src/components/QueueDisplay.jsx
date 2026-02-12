@@ -29,6 +29,8 @@ function QueueDisplay({queue, onUpdateStatus, onRemove}) {
                         >{customer.status}
                         </span>
                     </div>
+
+
                     <div className="actions">
                         {customer.status === "waiting" && (
                             <button className="serve-btn"
@@ -37,7 +39,24 @@ function QueueDisplay({queue, onUpdateStatus, onRemove}) {
                                 Serve
                             </button>
                         )}
+                        {customer.status === "serving" && (
+                            <button className="complete-btn"
+                            onClick = {() => onUpdateStatus(customer.id, "completed")}
+                                >
+                                Complete
+                            </button>
+                        )}
+                        <button
+                            className="remove-btn"
+                            onClick={() => onRemove(customer.id)}
+                        >
+                            {" "}
+                            remove
+                            
+                        </button>
                     </div>
+
+
 
                 </div>
 
