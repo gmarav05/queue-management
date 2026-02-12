@@ -33,7 +33,11 @@ export default function App() {
       </header>
       <main>
         <QueueForm onAdd = {addToQueue}/>
-        <h1>Queue Management</h1>
+        <QueueDisplay
+          queue = {queue}
+          onUpdateStatus = {updateStatus}
+          onRemove = {removeFromQueue}
+        />
       </main>
 
     </div>
