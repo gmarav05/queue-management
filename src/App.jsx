@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./App.improved.css";
 import QueueForm from "./components/QueueForm";
 import QueueDisplay from "./components/QueueDisplay";
 
