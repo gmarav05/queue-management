@@ -9,7 +9,7 @@ export default function App() {
 
   const addToQueue = (customer) => {
     setQueue([...queue, {...customer, id:Date.now(),
-      status: "Waiting"
+      status: "waiting"
     }])
     
   }

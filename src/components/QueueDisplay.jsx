@@ -4,15 +4,11 @@ function QueueDisplay({queue, onUpdateStatus, onRemove}) {
     const getStatusColor = (status) => {
         switch (status) {
             case "waiting":
-                
                 return "var(--warning)";
             case "serving":
-                
                 return "var(--success)";
             case "completed":
-                
                 return "var(--info)";
-        
             default:
                 return "var(--text)";
         }
@@ -25,6 +21,23 @@ function QueueDisplay({queue, onUpdateStatus, onRemove}) {
         <div className="queue-list">
             {queue.map((customer) => (
                 <div className="queue-item" key={customer.id}>
+                    <div className="customer-info">
+                        <h3>{customer.name}</h3>
+                        <p>{customer.service}</p>
+                        <span className="status"
+                            style={{color: getStatusColor(customer.status)}}
+                        >{customer.status}
+                        </span>
+                    </div>
+                    <div className="actions">
+                        {customer.status === "waiting" && (
+                            <button className="serve-btn"
+                            onClick = {() => onUpdateStatus(customer.id, "serving")}
+                                >
+                                Serve
+                            </button>
+                        )}
+                    </div>
 
                 </div>
 
@@ -37,4 +50,4 @@ function QueueDisplay({queue, onUpdateStatus, onRemove}) {
   )
 }
 
-export default QueueDisplay
+export default QueueDisplay;
